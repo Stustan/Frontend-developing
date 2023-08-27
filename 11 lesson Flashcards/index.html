@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="nav">
+                <h1>Билеты</h1>
+                <div>
+                    <button onclick="createFlashcard()">Новый билет</button>
+                    <button onclick="deleteFlachcards()">Удалить билеты</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="create-box">
+            <h2 style="text-align: center;">Добавить билет</h2>
+            <label for="question">Вопрос</label>
+            <textarea id="question"></textarea>
+            <br>
+            <label for="answer">Ответ</label>
+            <textarea id="answer"></textarea>
+            <div>
+                <button onclick="addFlashcard()">Сохранить</button>
+                <button onclick="hideCreateBox()">Закрыть</button>
+            </div>
+        </div>
+        <div class="flashcards"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

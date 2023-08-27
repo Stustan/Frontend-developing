@@ -1,0 +1,33 @@
+body.app{
+    background: #7f77ac;
+}
+
+.container{
+    width: 95%;
+    height: 80vh;
+    display: flex;
+}
+
+.quotes{
+    width: 900px;
+    height: 450px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    color: orange;
+    background-color: #725fdf;
+    border: 10px solid #463d79;
+}
+
+.quotes p, .quotes h3{
+    font-size: 1.5rem;
+}
+
+@media(max-width:480px){
+    .quotes p, .quotes h3{
+        font-size: 1rem ;
+    }
+}
