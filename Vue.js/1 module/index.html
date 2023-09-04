@@ -11,7 +11,16 @@
     </h1>
     <script src="https://unpkg.com/vue"></script>
     <script>
-        console.log(123);
+        const App = {
+            data () {
+                return {
+                    title: "Vue Init; Work with data",
+                };
+            },
+        };
+
+        Vue.createApp(App).mount;
+        console.log(Vue);
     </script>
 </body>
 </html>
