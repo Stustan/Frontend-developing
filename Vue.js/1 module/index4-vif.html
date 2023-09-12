@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>#1 - Vue Init; Work with data.</title>
+        <title>#4 - V-if.</title>
         <script src="https://unpkg.com/vue"></script>
     </head>
     <body>
@@ -12,10 +12,15 @@
                 <div class="app__header">
                     {{ priority.title }} - {{ priority.value }}
                 </div>
-                <br>
+                <br />
                 <div class="app__body">
-                    <button>{{buttons.prev.title}}</button>
-                    <button>{{buttons.next.title}}</button>
+                    <button v-if = "priority.value > 0" @click="down">
+                        {{buttons.prev.title}}
+                    </button>
+                    <br>
+                    <button v-if = "priority.value < 3"@click="up">
+                        {{buttons.next.title}}
+                    </button>
 
                 </div>
             </div>
@@ -39,7 +44,20 @@
                         }
                     };
                 },
+                methods: {
+                down() {
+                    if (this.priority.value >= 1) {
+                        this.priority.value -= 1;
+                    }
+                },
+                up() {
+                    if (this.priority.value < 3) {
+                        this.priority.value += 1;
+                    }
+                }
+            }
             };
+            
 
             Vue.createApp(App).mount("#app");
         </script>

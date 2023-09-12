@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>#1 - Vue Init; Work with data.</title>
+        <title>#3 - Methods.</title>
         <script src="https://unpkg.com/vue"></script>
     </head>
     <body>
@@ -14,8 +14,8 @@
                 </div>
                 <br>
                 <div class="app__body">
-                    <button>{{buttons.prev.title}}</button>
-                    <button>{{buttons.next.title}}</button>
+                    <button @click="down">{{buttons.prev.title}}</button>
+                    <button @click="up">{{buttons.next.title}}</button>
 
                 </div>
             </div>
@@ -39,7 +39,16 @@
                         }
                     };
                 },
+                methods: {
+                down() {
+                    this.priority.value -= 1;
+                },
+                up() {
+                    this.priority.value += 1;
+                }
+            }
             };
+            
 
             Vue.createApp(App).mount("#app");
         </script>
