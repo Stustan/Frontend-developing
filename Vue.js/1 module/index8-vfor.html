@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>#8 - Vfor.</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div id="app">
+               {{ names }}
+               <ul>
+                <li v-for="philosopher in names">{{ philosopher }}</li>
+               </ul>
+               <button @click="addNewItem">Add</button>
+            <hr>
+            {{philosophers__data}}
+            <ul>
+                <li v-for="sorcerer in philosophers__data" key="philosophers__data.id">
+                    <p>{{sorcerer.id}}</p>
+                    <p>Имя: {{sorcerer.name}}</p>
+                    <p>Годы жизни: {{sorcerer.year_born}} : {{sorcerer.year_died}}</p>
+                    <p>Жил до нашей эры: {{sorcerer.before_Christ ? 'Да' : 'Нет'}}</p>
+                </li>
+            </ul>
+            <button @click="addObject">Add Object</button>
+            </div>    
+        </div>
+
+        <script>
+            const App = {
+                data () {
+                    return {
+                        names: ['Платон', 'Аристотель', 'Сократ'],
+                        names2: ['Декарт', 'Спиноза', 'Юм', 'Лейбниц', 'Кант', 'Конфуций', 'Ницше'],
+                        philosophers__data: [
+                            {
+                                id: 1,
+                                name: 'Платон',
+                                year_born: -429,
+                                year_died: -347,
+                                before_Christ: true,
+                            },
+                            {
+                                id: 2,
+                                name: 'Аристотель',
+                                year_born: -384,
+                                year_died: -322,
+                                before_Christ: true,
+                            },
+                            {
+                                id: 3,
+                                name: 'Сократ',
+                                year_born: -470,
+                                year_died: -399,
+                                before_Christ: true,
+                            }
+                        ],
+                        philosophers__data2: [
+                            {
+                                id: 4,
+                                name: 'Декарт',
+                                year_born: 1596,
+                                year_died: 1650,
+                                before_Christ: false,
+                            },
+                            {
+                                id: 5,
+                                name: 'Спиноза',
+                                year_born: 1632,
+                                year_died: 1677,
+                                before_Christ: false,
+                            },
+                            {
+                                id: 6,
+                                name: 'Юм',
+                                year_born: 1711,
+                                year_died: 1776,
+                                before_Christ: false,
+                            },
+                            {
+                                id: 7,
+                                name: 'Лейбниц',
+                                year_born: 1646,
+                                year_died: 1716,
+                                before_Christ: false,
+                            },
+                            {
+                                id: 8,
+                                name: 'Кант',
+                                year_born: 1724,
+                                year_died: 1804,
+                                before_Christ: false,
+                            },
+                            {
+                                id: 9,
+                                name: 'Конфуций',
+                                year_born: -551,
+                                year_died: -479,
+                                before_Christ: true,
+                            },
+                            {
+                                id: 10,
+                                name: 'Ницше',
+                                year_born: 1844,
+                                year_died: 1900,
+                                before_Christ: false,
+                            },
+                        ]
+                    };
+                },
+                methods: {
+                    addNewItem() {
+                        index = Math.floor(Math.random() * this.names2.length);
+                        this.names.push(this.names2[index]);
+                    },
+                    addObject() {
+                        index = Math.floor(Math.random() * this.philosophers__data2.length);
+                        let current_philosopher = Object.assign({}, this.philosophers__data2[index]);
+                        current_philosopher.id = this.philosophers__data.length + 1;
+                        this.philosophers__data.push(current_philosopher);
+                    },
+                },
+            };
+            
+
+            Vue.createApp(App).mount("#app");
+        </script>
+    </body>
+</html>

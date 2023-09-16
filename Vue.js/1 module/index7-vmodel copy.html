@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>#7 - Vmodel.</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div id="app">
+                <input type="checkbox" v-model="checked">
+                <input type="text" placeholder="title" v-model="title"/>
+                <input type="text" placeholder="img" v-model="imgUrl"/>
+                <br>
+                <div class="img__Wrapper" v-if="checked">
+                    <img @click="changeImg" :src="imgUrl" :alt="title" :title="title">
+                </div>
+            </div>    
+        </div>
+
+        <script>
+            const App = {
+                data () {
+                    return {
+                        checked: true,
+                        title: 'csm',
+                        imgUrl: "./img/1.jpg",
+                    };
+                },
+                methods: {
+                    changeImg(){
+                        const images = ['./img/1.jpg', './img/2.jpg'];
+                        this.imgUrl = images[Math.floor(Math.random() * images.length)];
+                    },
+                },
+            };
+            
+
+            Vue.createApp(App).mount("#app");
+        </script>
+    </body>
+</html>
