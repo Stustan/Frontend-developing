@@ -3,9 +3,9 @@
     <div class="container">
       <ul class="navbar-list">
         <li class="navbar-item" v-for="link in links" :key="link.alias">
-          <a class="navbar-link" :href="link.url">{{
+          <router-link class="navbar-link" :to="link.url">{{
             link.title
-          }}</a>
+          }}</router-link>
         </li>
       </ul>
 
